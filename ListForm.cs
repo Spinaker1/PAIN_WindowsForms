@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ListForm : Form
+    public partial class ListForm : View
     {
         public ListForm()
         {
@@ -25,7 +25,7 @@ namespace WindowsFormsApp1
 
         }
 
-        private void addItem(Vehicle v)
+        public void addItem(Vehicle v)
         {
             string[] row = { v.carMake, v.topSpeed.ToString(), v.date.ToShortDateString(), v.type.ToString() };
             ListViewItem item = new ListViewItem(row);
@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
             listView1.Items.Add(item);
         }
 
-        private void updateItem(Vehicle v)
+        public void updateItem(Vehicle v)
         {
             ListViewItem itemToUpdate = null;
             foreach (ListViewItem item in listView1.Items)
@@ -58,7 +58,7 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void DeleteItem(Vehicle v)
+        public void DeleteItem(Vehicle v)
         {
             foreach (ListViewItem item in listView1.Items)
             {
@@ -95,8 +95,16 @@ namespace WindowsFormsApp1
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyElementForm form = new ModifyElementForm();
-            form.ShowDialog();
+            ((MainForm)MdiParent).addVehicle();
+        }
+
+        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                Vehicle v = (Vehicle)listView1.SelectedItems[0].Tag;
+                ((MainForm)MdiParent).deleteVehicle(v);
+            }
         }
     }
 }

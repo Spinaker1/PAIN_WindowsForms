@@ -12,6 +12,9 @@ namespace WindowsFormsApp1
 {
     public partial class MainForm : Form
     {
+        private List<View> views = new List<View>();
+        private List<Vehicle> model = new List<Vehicle>();
+
         public MenuStrip menuStrip
         {
             get { return this.menuStrip1; }
@@ -31,12 +34,36 @@ namespace WindowsFormsApp1
             formsCount = 0;
         }
 
+        public void addVehicle()
+        {
+            ModifyElementForm form = new ModifyElementForm();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Vehicle v = new Vehicle(form.CarMake, form.TopSpeed, form.date, VehicleType.PASSENGER);
+                foreach (ListForm view in views)
+                {
+                    view.addItem(v);
+                }
+                model.Add(v);
+            }
+        }
+
+        public void deleteVehicle(Vehicle v)
+        {
+            foreach (ListForm view in views)
+            {
+                view.DeleteItem(v);
+            }
+            model.Remove(v);
+        }
+
         private void createChildForm()
         {
             formsCount++;
             ListForm view = new ListForm();
             view.MdiParent = this;
             view.Show();
+            views.Add(view);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
