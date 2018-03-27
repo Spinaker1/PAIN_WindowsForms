@@ -12,12 +12,15 @@ namespace WindowsFormsApp1
 {
     public partial class ListForm : View
     {
+        private int itemsCount = 0; 
+
         public ListForm()
         {
             FormClosing += ListForm_Closing;
             Enter += ListForm_Enter;
             Leave += ListForm_Leave;
             InitializeComponent();
+            toolStripStatusLabel1.Text = itemsCount.ToString();
         }
 
         private void ListForm_Load(object sender, EventArgs e)
@@ -31,6 +34,8 @@ namespace WindowsFormsApp1
             ListViewItem item = new ListViewItem(row);
             item.Tag = v;
             listView1.Items.Add(item);
+
+            itemsCount++;
         }
 
         public void updateItem(Vehicle v)
@@ -68,6 +73,8 @@ namespace WindowsFormsApp1
                     return;
                 }
             }
+
+            itemsCount--;
         }
 
         private void ListForm_Closing(object sender, FormClosingEventArgs e)
@@ -85,12 +92,15 @@ namespace WindowsFormsApp1
         private void ListForm_Enter(Object sender, EventArgs e)
         {
             ToolStripManager.Merge(menuStrip1, ((MainForm)MdiParent).menuStrip);
-            
+            ToolStripManager.Merge(statusStrip1, ((MainForm)MdiParent).statusStrip);
+            toolStripStatusLabel1.Text = itemsCount.ToString();
         }
 
         private void ListForm_Leave(Object sender, EventArgs e)
         {
             ToolStripManager.RevertMerge(((MainForm)MdiParent).menuStrip, menuStrip1);
+            ToolStripManager.RevertMerge(((MainForm)MdiParent).statusStrip, statusStrip1);
+            toolStripStatusLabel1.Text = "";
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
