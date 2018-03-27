@@ -14,12 +14,20 @@ namespace WindowsFormsApp1
     {
         public string CarMake { get { return textBox1.Text; } }
         public int TopSpeed { get { return Int32.Parse(textBox2.Text); } }
-        public DateTime date { get { return dateTimePicker1.Value; }
-}
+        public DateTime date { get { return dateTimePicker1.Value; } }
+        public VehicleType Type { get { return changeType2.Type; } }
 
-public ModifyElementForm()
+        public ModifyElementForm()
         {
             InitializeComponent();
+        }
+
+        public ModifyElementForm(Vehicle v)
+        {
+            InitializeComponent();
+            textBox1.Text = v.carMake;
+            textBox2.Text = v.topSpeed.ToString();
+            dateTimePicker1.Value = v.date;
         }
 
         private void ModifyElement_Load(object sender, EventArgs e)
@@ -36,5 +44,6 @@ public ModifyElementForm()
         {
             this.DialogResult = DialogResult.Cancel;
         }
+
     }
 }

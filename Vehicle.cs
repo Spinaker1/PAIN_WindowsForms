@@ -15,5 +15,13 @@ namespace WindowsFormsApp1
             this.date = date;
             this.type = type;
         }
+
+        public void SetValues(String carMake, int topSpeed, DateTime date, VehicleType type)
+        {
+            this.carMake = carMake;
+            this.topSpeed = topSpeed;
+            this.date = date;
+            this.type = type;
+        }
     }
 }

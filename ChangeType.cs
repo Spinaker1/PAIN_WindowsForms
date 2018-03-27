@@ -20,12 +20,18 @@ namespace WindowsFormsApp1
 
         public ChangeType()
         {
-            image[0] = Image.FromFile(@"Resources\passenger.png");
-            image[1] = Image.FromFile(@"Resources\truck.png");
-            image[2] = Image.FromFile(@"Resources\onewheeler.png");
-            InitializeComponent();
-            pictureBox1.Image = image[(int)actualType];
+            try
+            {
+                image[0] = Image.FromFile(@"Resources\passenger.png");
+                image[1] = Image.FromFile(@"Resources\truck.png");
+                image[2] = Image.FromFile(@"Resources\onewheeler.png");
+                InitializeComponent();
+                pictureBox1.Image = image[(int)actualType];
+            }
+            catch (IOException e) { }
         }
+
+        public VehicleType Type { get { return actualType; } }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {

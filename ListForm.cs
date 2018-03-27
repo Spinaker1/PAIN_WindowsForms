@@ -106,5 +106,14 @@ namespace WindowsFormsApp1
                 ((MainForm)MdiParent).deleteVehicle(v);
             }
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                Vehicle v = (Vehicle)listView1.SelectedItems[0].Tag;
+                ((MainForm)MdiParent).updateVehicle(v);
+            }
+        }
     }
 }

@@ -39,12 +39,25 @@ namespace WindowsFormsApp1
             ModifyElementForm form = new ModifyElementForm();
             if (form.ShowDialog() == DialogResult.OK)
             {
-                Vehicle v = new Vehicle(form.CarMake, form.TopSpeed, form.date, VehicleType.PASSENGER);
+                Vehicle v = new Vehicle(form.CarMake, form.TopSpeed, form.date, form.Type);
                 foreach (ListForm view in views)
                 {
                     view.addItem(v);
                 }
                 model.Add(v);
+            }
+        }
+
+        public void updateVehicle(Vehicle v)
+        {
+            ModifyElementForm form = new ModifyElementForm(v);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                v.SetValues(form.CarMake, form.TopSpeed, form.date, form.Type); 
+                foreach (ListForm view in views)
+                {
+                    view.updateItem(v);
+                }
             }
         }
 
@@ -62,6 +75,10 @@ namespace WindowsFormsApp1
             formsCount++;
             ListForm view = new ListForm();
             view.MdiParent = this;
+            foreach (Vehicle vehicle in model)
+            {
+                view.addItem(vehicle);
+            }
             view.Show();
             views.Add(view);
         }
