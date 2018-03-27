@@ -1,14 +1,14 @@
 ﻿using System;
-namespace Cars
+namespace WindowsFormsApp1
 {
     public class Vehicle
     {
         public String carMake { get; set; }
         public int topSpeed { get; set; }
-        public String date { get; set; }
+        public DateTime date { get; set; }
         public VehicleType type { get; set; }
 
-        public Vehicle(String carMake, int topSpeed, String date, VehicleType type)
+        public Vehicle(String carMake, int topSpeed, DateTime date, VehicleType type)
         {
             this.carMake = carMake;
             this.topSpeed = topSpeed;

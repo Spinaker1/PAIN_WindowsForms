@@ -110,7 +110,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ListForm";
-            this.Text = "Form2";
+            this.Text = "List view";
             this.Load += new System.EventHandler(this.ListForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -57,24 +57,33 @@
     <Compile Include="ListForm.Designer.cs">
       <DependentUpon>ListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModifyElement.cs">
+    <Compile Include="ModifyElementForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ModifyElement.Designer.cs">
-      <DependentUpon>ModifyElement.cs</DependentUpon>
+    <Compile Include="ModifyElementForm.Designer.cs">
+      <DependentUpon>ModifyElementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ChangeType.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ChangeType.Designer.cs">
+      <DependentUpon>ChangeType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vehicle.cs" />
     <Compile Include="VehicleType.cs" />
+    <EmbeddedResource Include="ChangeType.resx">
+      <DependentUpon>ChangeType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ListForm.resx">
       <DependentUpon>ListForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ModifyElement.resx">
-      <DependentUpon>ModifyElement.cs</DependentUpon>
+    <EmbeddedResource Include="ModifyElementForm.resx">
+      <DependentUpon>ModifyElementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -97,6 +106,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Resources\passenger.png" />
+    <Content Include="Resources\passenger.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

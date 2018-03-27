@@ -25,6 +25,51 @@ namespace WindowsFormsApp1
 
         }
 
+        private void addItem(Vehicle v)
+        {
+            string[] row = { v.carMake, v.topSpeed.ToString(), v.date.ToShortDateString(), v.type.ToString() };
+            ListViewItem item = new ListViewItem(row);
+            item.Tag = v;
+            listView1.Items.Add(item);
+        }
+
+        private void updateItem(Vehicle v)
+        {
+            ListViewItem itemToUpdate = null;
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item.Tag == v)
+                {
+                    itemToUpdate = item;
+                }
+            }
+
+            if (itemToUpdate == null)
+            {
+                addItem(v);
+            }
+            else
+            {
+                string[] row = { v.carMake, v.topSpeed.ToString(), v.date.ToShortDateString(), v.type.ToString() };
+                for (int i = 0; i < row.Length; i++)
+                {
+                    itemToUpdate.SubItems[i].Text = row[i];
+                }
+            }
+        }
+
+        private void DeleteItem(Vehicle v)
+        {
+            foreach (ListViewItem item in listView1.Items)
+            {
+                if (item.Tag == v)
+                {
+                    listView1.Items.Remove(item);
+                    return;
+                }
+            }
+        }
+
         private void ListForm_Closing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason != CloseReason.MdiFormClosing && ((MainForm)MdiParent).formsCount <= 1)
@@ -50,7 +95,7 @@ namespace WindowsFormsApp1
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ModifyElement form = new ModifyElement();
+            ModifyElementForm form = new ModifyElementForm();
             form.ShowDialog();
         }
     }

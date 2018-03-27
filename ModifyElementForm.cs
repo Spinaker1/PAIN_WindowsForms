@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ModifyElement : Form
+    public partial class ModifyElementForm : Form
     {
-        public ModifyElement()
+        public ModifyElementForm()
         {
             InitializeComponent();
+        }
+
+        private void ModifyElement_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void changeType1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

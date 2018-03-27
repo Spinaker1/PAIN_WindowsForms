@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class ModifyElement
+    partial class ModifyElementForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,6 +31,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.changeType1 = new WindowsFormsApp1.ChangeType();
             this.SuspendLayout();
             // 
             // textBox1
@@ -54,16 +55,26 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 2;
             // 
+            // changeType1
+            // 
+            this.changeType1.Location = new System.Drawing.Point(62, 143);
+            this.changeType1.Name = "changeType1";
+            this.changeType1.Size = new System.Drawing.Size(100, 100);
+            this.changeType1.TabIndex = 3;
+            this.changeType1.Load += new System.EventHandler(this.changeType1_Load);
+            // 
             // ModifyElement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 240);
+            this.ClientSize = new System.Drawing.Size(296, 259);
+            this.Controls.Add(this.changeType1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "ModifyElement";
             this.Text = "ModifyElement";
+            this.Load += new System.EventHandler(this.ModifyElement_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -74,5 +85,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private ChangeType changeType1;
     }
 }
