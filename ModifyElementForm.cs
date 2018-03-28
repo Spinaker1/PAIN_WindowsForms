@@ -72,12 +72,14 @@ namespace WindowsFormsApp1
                 return false;
             }
 
+            if (dateTimePicker1.Value > DateTime.Now)
+            {
+                string message = "Date cannot be in future";
+                MessageBox.Show(message, caption, buttons);
+                return false;
+            }
+
             return true;
-        }
-
-        private void ModifyElement_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void button1_Click(object sender, EventArgs e)

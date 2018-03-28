@@ -54,9 +54,9 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.Location = new System.Drawing.Point(0, 51);
+            this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(333, 154);
+            this.listView1.Size = new System.Drawing.Size(333, 205);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -128,20 +128,23 @@
             // noFilterToolStripMenuItem
             // 
             this.noFilterToolStripMenuItem.Name = "noFilterToolStripMenuItem";
-            this.noFilterToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.noFilterToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.noFilterToolStripMenuItem.Text = "No filter";
+            this.noFilterToolStripMenuItem.Click += new System.EventHandler(this.noFilterToolStripMenuItem_Click);
             // 
             // lessThan100KmhToolStripMenuItem
             // 
             this.lessThan100KmhToolStripMenuItem.Name = "lessThan100KmhToolStripMenuItem";
-            this.lessThan100KmhToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.lessThan100KmhToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
             this.lessThan100KmhToolStripMenuItem.Text = "Less than 100 km/h";
+            this.lessThan100KmhToolStripMenuItem.Click += new System.EventHandler(this.lessThan100KmhToolStripMenuItem_Click);
             // 
             // moreOrEqual100KmhToolStripMenuItem
             // 
             this.moreOrEqual100KmhToolStripMenuItem.Name = "moreOrEqual100KmhToolStripMenuItem";
-            this.moreOrEqual100KmhToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.moreOrEqual100KmhToolStripMenuItem.Text = "More or equal 100 km/h";
+            this.moreOrEqual100KmhToolStripMenuItem.Size = new System.Drawing.Size(237, 22);
+            this.moreOrEqual100KmhToolStripMenuItem.Text = "Equal or greater than 100 km/h";
+            this.moreOrEqual100KmhToolStripMenuItem.Click += new System.EventHandler(this.moreOrEqual100KmhToolStripMenuItem_Click);
             // 
             // statusStrip1
             // 
@@ -170,7 +173,6 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ListForm";
             this.Text = "List view";
-            this.Load += new System.EventHandler(this.ListForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);

@@ -153,7 +153,6 @@
             this.Controls.Add(this.textBox1);
             this.Name = "ModifyElementForm";
             this.Text = "ModifyElement";
-            this.Load += new System.EventHandler(this.ModifyElement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.changeType2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class ListForm : View
     {
-        private int itemsCount = 0; 
+        private enum Condition { NO_FILTER, L100, EG100 };
 
         public ListForm()
         {
@@ -20,12 +20,7 @@ namespace WindowsFormsApp1
             Enter += ListForm_Enter;
             Leave += ListForm_Leave;
             InitializeComponent();
-            toolStripStatusLabel1.Text = itemsCount.ToString();
-        }
-
-        private void ListForm_Load(object sender, EventArgs e)
-        {
-
+            toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
         }
 
         public void addItem(Vehicle v)
@@ -34,8 +29,7 @@ namespace WindowsFormsApp1
             ListViewItem item = new ListViewItem(row);
             item.Tag = v;
             listView1.Items.Add(item);
-
-            itemsCount++;
+            toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
         }
 
         public void updateItem(Vehicle v)
@@ -70,11 +64,10 @@ namespace WindowsFormsApp1
                 if (item.Tag == v)
                 {
                     listView1.Items.Remove(item);
+                    toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
                     return;
                 }
             }
-
-            itemsCount--;
         }
 
         private void ListForm_Closing(object sender, FormClosingEventArgs e)
@@ -93,7 +86,7 @@ namespace WindowsFormsApp1
         {
             ToolStripManager.Merge(menuStrip1, ((MainForm)MdiParent).menuStrip);
             ToolStripManager.Merge(statusStrip1, ((MainForm)MdiParent).statusStrip);
-            toolStripStatusLabel1.Text = itemsCount.ToString();
+            toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
         }
 
         private void ListForm_Leave(Object sender, EventArgs e)
@@ -124,6 +117,48 @@ namespace WindowsFormsApp1
                 Vehicle v = (Vehicle)listView1.SelectedItems[0].Tag;
                 ((MainForm)MdiParent).updateVehicle(v);
             }
+        }
+
+        private void RefreshList(Condition cond)
+        {
+            this.listView1.Items.Clear();
+
+            List<Vehicle> model = ((MainForm)MdiParent).Model;
+            foreach (Vehicle v in model) {
+                switch(cond)
+                {
+                    case Condition.NO_FILTER:
+                        addItem(v);
+                        break;
+
+                    case Condition.L100:
+                        if (v.topSpeed < 100)
+                            addItem(v);
+                        break;
+
+                    case Condition.EG100:
+                        if (v.topSpeed >= 100)
+                            addItem(v);
+                        break;
+                }
+            }
+
+            toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
+        }
+
+        private void noFilterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefreshList(Condition.NO_FILTER);
+        }
+
+        private void lessThan100KmhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefreshList(Condition.L100);
+        }
+
+        private void moreOrEqual100KmhToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RefreshList(Condition.EG100);
         }
     }
 }

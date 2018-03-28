@@ -14,6 +14,7 @@ namespace WindowsFormsApp1
     {
         private List<View> views = new List<View>();
         private List<Vehicle> model = new List<Vehicle>();
+        public List<Vehicle> Model { get { return model; } set { model = value; } }
 
         public MenuStrip menuStrip
         {
