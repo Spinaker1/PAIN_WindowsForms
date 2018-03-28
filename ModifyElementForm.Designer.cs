@@ -38,6 +38,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.changeType2 = new WindowsFormsApp1.ChangeType();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.changeType2)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox1
@@ -63,7 +65,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(46, 289);
+            this.button1.Location = new System.Drawing.Point(43, 307);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;
@@ -73,7 +75,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(152, 289);
+            this.button2.Location = new System.Drawing.Point(147, 307);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 4;
@@ -110,11 +112,12 @@
             // 
             // changeType2
             // 
-            this.changeType2.Location = new System.Drawing.Point(62, 152);
+            this.changeType2.Location = new System.Drawing.Point(62, 180);
             this.changeType2.Name = "changeType2";
             this.changeType2.Size = new System.Drawing.Size(100, 100);
             this.changeType2.TabIndex = 9;
-            // 
+            this.changeType2.TabStop = false;
+            this.changeType2.Type = WindowsFormsApp1.VehicleType.PASSENGER;            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -124,11 +127,20 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Type:";
             // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(62, 149);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 11;
+            // 
             // ModifyElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 324);
+            this.ClientSize = new System.Drawing.Size(296, 342);
+            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.changeType2);
             this.Controls.Add(this.label3);
@@ -142,6 +154,7 @@
             this.Name = "ModifyElementForm";
             this.Text = "ModifyElement";
             this.Load += new System.EventHandler(this.ModifyElement_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.changeType2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,7 +165,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private ChangeType changeType1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label1;
@@ -160,5 +172,6 @@
         private System.Windows.Forms.Label label3;
         private ChangeType changeType2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }

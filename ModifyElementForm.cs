@@ -20,6 +20,9 @@ namespace WindowsFormsApp1
         public ModifyElementForm()
         {
             InitializeComponent();
+
+            textBox3.Text = Type.ToString();
+            this.changeType2.ChangeTypeEvent += new EventHandler(UserControl_ChangeType);
         }
 
         public ModifyElementForm(Vehicle v)
@@ -28,6 +31,48 @@ namespace WindowsFormsApp1
             textBox1.Text = v.carMake;
             textBox2.Text = v.topSpeed.ToString();
             dateTimePicker1.Value = v.date;
+            changeType2.Type = v.type;
+
+            textBox3.Text = Type.ToString();          
+            this.changeType2.ChangeTypeEvent += new EventHandler(UserControl_ChangeType);
+        }
+
+
+        private bool Validation()
+        {
+            string caption = "Invalid data";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+            if (textBox1.Text.Length == 0)
+            {
+                string message = "Car make should be not empty";
+                MessageBox.Show(message, caption, buttons);
+                return false;
+            }
+
+            if (textBox2.Text.Length == 0)
+            {
+                string message = "Top speed should be not empty";
+                MessageBox.Show(message, caption, buttons);
+                return false;
+            }
+
+            int x;
+            if (!Int32.TryParse(textBox2.Text,out x))
+            {
+                string message = "Top speed should be integer";
+                MessageBox.Show(message, caption, buttons);
+                return false;
+            }
+
+            if (x <= 0 )
+            {
+                string message = "Top speed should be positive";
+                MessageBox.Show(message, caption, buttons);
+                return false;
+            }
+
+            return true;
         }
 
         private void ModifyElement_Load(object sender, EventArgs e)
@@ -37,6 +82,10 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Validation() ==  false)
+            {
+                return;
+            }
             this.DialogResult = DialogResult.OK;
         }
 
@@ -45,5 +94,9 @@ namespace WindowsFormsApp1
             this.DialogResult = DialogResult.Cancel;
         }
 
+        private void UserControl_ChangeType(object sender, EventArgs e)
+        {
+            textBox3.Text = Type.ToString();
+        }
     }
 }

@@ -37,6 +37,10 @@
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.filterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noFilterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lessThan100KmhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.moreOrEqual100KmhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
@@ -50,9 +54,9 @@
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Location = new System.Drawing.Point(0, 51);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(283, 205);
+            this.listView1.Size = new System.Drawing.Size(333, 154);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -60,28 +64,33 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Car make";
+            this.columnHeader1.Width = 78;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Top speed";
+            this.columnHeader2.Width = 81;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Date";
+            this.columnHeader3.Width = 69;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Type";
+            this.columnHeader4.Width = 106;
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.removeToolStripMenuItem});
+            this.removeToolStripMenuItem,
+            this.filterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(280, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(333, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -106,13 +115,41 @@
             this.removeToolStripMenuItem.Text = "Remove";
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
+            // filterToolStripMenuItem
+            // 
+            this.filterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.noFilterToolStripMenuItem,
+            this.lessThan100KmhToolStripMenuItem,
+            this.moreOrEqual100KmhToolStripMenuItem});
+            this.filterToolStripMenuItem.Name = "filterToolStripMenuItem";
+            this.filterToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.filterToolStripMenuItem.Text = "Filter";
+            // 
+            // noFilterToolStripMenuItem
+            // 
+            this.noFilterToolStripMenuItem.Name = "noFilterToolStripMenuItem";
+            this.noFilterToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.noFilterToolStripMenuItem.Text = "No filter";
+            // 
+            // lessThan100KmhToolStripMenuItem
+            // 
+            this.lessThan100KmhToolStripMenuItem.Name = "lessThan100KmhToolStripMenuItem";
+            this.lessThan100KmhToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.lessThan100KmhToolStripMenuItem.Text = "Less than 100 km/h";
+            // 
+            // moreOrEqual100KmhToolStripMenuItem
+            // 
+            this.moreOrEqual100KmhToolStripMenuItem.Name = "moreOrEqual100KmhToolStripMenuItem";
+            this.moreOrEqual100KmhToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.moreOrEqual100KmhToolStripMenuItem.Text = "More or equal 100 km/h";
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 183);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(280, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(333, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -126,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 205);
+            this.ClientSize = new System.Drawing.Size(333, 205);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.menuStrip1);
@@ -156,5 +193,9 @@
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripMenuItem filterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem noFilterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lessThan100KmhToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem moreOrEqual100KmhToolStripMenuItem;
     }
 }
