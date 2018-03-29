@@ -10,9 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class ListForm : View
+    public partial class ListForm : Form, View
     {
         private enum Condition { NO_FILTER, L100, EG100 };
+        private Condition cond = Condition.NO_FILTER;
 
         public ListForm()
         {
@@ -25,14 +26,65 @@ namespace WindowsFormsApp1
 
         public void addItem(Vehicle v)
         {
+            switch (cond)
+            {
+                case Condition.NO_FILTER:
+                    add(v);
+                    break;
+
+                case Condition.L100:
+                    if (v.topSpeed < 100)
+                        add(v);
+                    break;
+
+                case Condition.EG100:
+                    if (v.topSpeed >= 100)
+                        add(v);
+                    break;
+            }
+        }
+
+        private void add(Vehicle v)
+        {
             string[] row = { v.carMake, v.topSpeed.ToString(), v.date.ToShortDateString(), v.type.ToString() };
             ListViewItem item = new ListViewItem(row);
             item.Tag = v;
             listView1.Items.Add(item);
-            toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
+            if (Focus())
+            {
+                toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
+            }
         }
 
         public void updateItem(Vehicle v)
+        {
+            switch (cond)
+            {
+                case Condition.NO_FILTER:
+                    update(v);
+                    break;
+
+                case Condition.L100:
+                    if (v.topSpeed < 100)
+                        update(v);
+                    else
+                    {
+                        DeleteItem(v);
+                    }
+                    break;
+
+                case Condition.EG100:
+                    if (v.topSpeed >= 100)
+                        update(v);
+                    else
+                    {
+                        DeleteItem(v);
+                    }
+                    break;
+            }
+        }
+
+        private void update(Vehicle v)
         {
             ListViewItem itemToUpdate = null;
             foreach (ListViewItem item in listView1.Items)
@@ -64,7 +116,10 @@ namespace WindowsFormsApp1
                 if (item.Tag == v)
                 {
                     listView1.Items.Remove(item);
-                    toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
+                    if (Focus())
+                    {
+                        toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
+                    }
                     return;
                 }
             }
@@ -119,28 +174,13 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void RefreshList(Condition cond)
+        private void RefreshList()
         {
             this.listView1.Items.Clear();
 
             List<Vehicle> model = ((MainForm)MdiParent).Model;
             foreach (Vehicle v in model) {
-                switch(cond)
-                {
-                    case Condition.NO_FILTER:
-                        addItem(v);
-                        break;
-
-                    case Condition.L100:
-                        if (v.topSpeed < 100)
-                            addItem(v);
-                        break;
-
-                    case Condition.EG100:
-                        if (v.topSpeed >= 100)
-                            addItem(v);
-                        break;
-                }
+                addItem(v);
             }
 
             toolStripStatusLabel1.Text = listView1.Items.Count.ToString();
@@ -148,17 +188,20 @@ namespace WindowsFormsApp1
 
         private void noFilterToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RefreshList(Condition.NO_FILTER);
+            cond = Condition.NO_FILTER;
+            RefreshList();
         }
 
         private void lessThan100KmhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RefreshList(Condition.L100);
+            cond = Condition.L100;
+            RefreshList();
         }
 
         private void moreOrEqual100KmhToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RefreshList(Condition.EG100);
+            cond = Condition.EG100;
+            RefreshList();
         }
     }
 }

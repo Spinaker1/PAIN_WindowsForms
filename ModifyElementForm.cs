@@ -17,6 +17,8 @@ namespace WindowsFormsApp1
         public DateTime date { get { return dateTimePicker1.Value; } }
         public VehicleType Type { get { return changeType2.Type; } }
 
+        private ErrorProvider errorProvider = new ErrorProvider();
+
         public ModifyElementForm()
         {
             InitializeComponent();
@@ -99,6 +101,11 @@ namespace WindowsFormsApp1
         private void UserControl_ChangeType(object sender, EventArgs e)
         {
             textBox3.Text = Type.ToString();
+        }
+
+        private void changeType2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModifyElementForm));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -112,12 +113,15 @@
             // 
             // changeType2
             // 
+            this.changeType2.Image = ((System.Drawing.Image)(resources.GetObject("changeType2.Image")));
             this.changeType2.Location = new System.Drawing.Point(62, 180);
             this.changeType2.Name = "changeType2";
             this.changeType2.Size = new System.Drawing.Size(100, 100);
             this.changeType2.TabIndex = 9;
             this.changeType2.TabStop = false;
-            this.changeType2.Type = WindowsFormsApp1.VehicleType.PASSENGER;            // 
+            this.changeType2.Type = WindowsFormsApp1.VehicleType.TWO_WHEELER;
+            this.changeType2.Click += new System.EventHandler(this.changeType2_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;

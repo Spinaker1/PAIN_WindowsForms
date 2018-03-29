@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             if (form.ShowDialog() == DialogResult.OK)
             {
                 Vehicle v = new Vehicle(form.CarMake, form.TopSpeed, form.date, form.Type);
-                foreach (ListForm view in views)
+                foreach (View view in views)
                 {
                     view.addItem(v);
                 }
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
             if (form.ShowDialog() == DialogResult.OK)
             {
                 v.SetValues(form.CarMake, form.TopSpeed, form.date, form.Type); 
-                foreach (ListForm view in views)
+                foreach (View view in views)
                 {
                     view.updateItem(v);
                 }
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
 
         public void deleteVehicle(Vehicle v)
         {
-            foreach (ListForm view in views)
+            foreach (View view in views)
             {
                 view.DeleteItem(v);
             }

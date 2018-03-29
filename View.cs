@@ -10,11 +10,10 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class View : Form
+    public interface View
     {
-        public View()
-        {
-            InitializeComponent();
-        }
+        void addItem(Vehicle v);
+        void updateItem(Vehicle v);
+        void DeleteItem(Vehicle v);
     }
 }

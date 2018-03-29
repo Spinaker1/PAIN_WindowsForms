@@ -11,3 +11,15 @@ C:\Users\klits\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsF
 C:\Users\klits\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainForm.resources
 C:\Users\klits\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ChangeType.resources
 C:\Users\klits\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.ModifyElementForm.resources
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.exe
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.csprojResolveAssemblyReference.cache
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.ChangeType.resources
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.ListForm.resources
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.MainForm.resources
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.ModifyElementForm.resources
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.Cache
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\bin\Debug\WindowsFormsApp1.exe
+C:\Users\TEMP\Downloads\WindowsForms-master\WindowsForms-master\bin\Debug\WindowsFormsApp1.pdb
