@@ -120,7 +120,6 @@
             this.changeType2.TabIndex = 9;
             this.changeType2.TabStop = false;
             this.changeType2.Type = WindowsFormsApp1.VehicleType.TWO_WHEELER;
-            this.changeType2.Click += new System.EventHandler(this.changeType2_Click);
             // 
             // label4
             // 

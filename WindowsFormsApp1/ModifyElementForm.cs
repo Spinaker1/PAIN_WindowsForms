@@ -25,6 +25,7 @@ namespace WindowsFormsApp1
 
             textBox3.Text = Type.ToString();
             this.changeType2.ChangeTypeEvent += new EventHandler(UserControl_ChangeType);
+            setValidation();
         }
 
         public ModifyElementForm(Vehicle v)
@@ -37,56 +38,81 @@ namespace WindowsFormsApp1
 
             textBox3.Text = Type.ToString();          
             this.changeType2.ChangeTypeEvent += new EventHandler(UserControl_ChangeType);
+            setValidation();
         }
 
-
-        private bool Validation()
+        private void setValidation()
         {
-            string caption = "Invalid data";
-            MessageBoxButtons buttons = MessageBoxButtons.OK;
+            textBox1.Validating += new CancelEventHandler(textBox1_Validating);
+            textBox2.Validating += new CancelEventHandler(textBox2_Validating);
+            dateTimePicker1.Validating += new CancelEventHandler(dateTimePicker1_Validating);
 
+            textBox1.Validated += textBox1_Validated;
+            textBox2.Validated += textBox2_Validated;
+            dateTimePicker1.Validated += dateTimePicker1_Validated;
+        }
+
+        private void textBox1_Validating(object sender, CancelEventArgs e)
+        {
             if (textBox1.Text.Length == 0)
             {
-                string message = "Car make should be not empty";
-                MessageBox.Show(message, caption, buttons);
-                return false;
+                e.Cancel = true;
+                errorProvider.SetError(textBox1, "Car make should be not empty");
             }
+        }
 
+        private void textBox2_Validating(object sender, CancelEventArgs e)
+        {
             if (textBox2.Text.Length == 0)
             {
-                string message = "Top speed should be not empty";
-                MessageBox.Show(message, caption, buttons);
-                return false;
+                e.Cancel = true;
+                errorProvider.SetError(textBox2, "Top speed should be not empty");
+                return;
             }
 
             int x;
-            if (!Int32.TryParse(textBox2.Text,out x))
+            if (!Int32.TryParse(textBox2.Text, out x))
             {
-                string message = "Top speed should be integer";
-                MessageBox.Show(message, caption, buttons);
-                return false;
+                e.Cancel = true;
+                errorProvider.SetError(textBox2, "Top speed should be integer");
+                return;
             }
 
-            if (x <= 0 )
+            if (x <= 0)
             {
-                string message = "Top speed should be positive";
-                MessageBox.Show(message, caption, buttons);
-                return false;
+                e.Cancel = true;
+                errorProvider.SetError(textBox2, "Top speed should be positive");
+                return;
             }
+        }
 
+        private void dateTimePicker1_Validating(object sender, CancelEventArgs e)
+        {
             if (dateTimePicker1.Value > DateTime.Now)
             {
-                string message = "Date cannot be in future";
-                MessageBox.Show(message, caption, buttons);
-                return false;
+                e.Cancel = true;
+                errorProvider.SetError(dateTimePicker1, "Date cannot be in future");
             }
+        }
 
-            return true;
+        private void textBox1_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(textBox1, "");
+        }
+
+        private void textBox2_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(textBox2, "");
+        }
+
+        private void dateTimePicker1_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(dateTimePicker1, "");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Validation() ==  false)
+            if (ValidateChildren() ==  false)
             {
                 return;
             }
@@ -101,11 +127,6 @@ namespace WindowsFormsApp1
         private void UserControl_ChangeType(object sender, EventArgs e)
         {
             textBox3.Text = Type.ToString();
-        }
-
-        private void changeType2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
