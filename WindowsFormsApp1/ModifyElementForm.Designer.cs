@@ -37,9 +37,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.changeType2 = new WindowsFormsApp1.ChangeType();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.changeType2 = new WindowsFormsApp1.ChangeType();
             ((System.ComponentModel.ISupportInitialize)(this.changeType2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,16 +111,6 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Date:";
             // 
-            // changeType2
-            // 
-            this.changeType2.InitialImage = ((System.Drawing.Image)(resources.GetObject("changeType2.InitialImage")));
-            this.changeType2.Location = new System.Drawing.Point(62, 180);
-            this.changeType2.Name = "changeType2";
-            this.changeType2.Size = new System.Drawing.Size(100, 100);
-            this.changeType2.TabIndex = 9;
-            this.changeType2.TabStop = false;
-            this.changeType2.Type = WindowsFormsApp1.VehicleType.PASSENGER;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -137,6 +127,17 @@
             this.textBox3.ReadOnly = true;
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 11;
+            // 
+            // changeType2
+            // 
+            this.changeType2.Image = ((System.Drawing.Image)(resources.GetObject("changeType2.Image")));
+            this.changeType2.InitialImage = ((System.Drawing.Image)(resources.GetObject("changeType2.InitialImage")));
+            this.changeType2.Location = new System.Drawing.Point(62, 180);
+            this.changeType2.Name = "changeType2";
+            this.changeType2.Size = new System.Drawing.Size(100, 100);
+            this.changeType2.TabIndex = 9;
+            this.changeType2.TabStop = false;
+            this.changeType2.Type = WindowsFormsApp1.VehicleType.PASSENGER;
             // 
             // ModifyElementForm
             // 
