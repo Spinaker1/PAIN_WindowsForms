@@ -30,10 +30,10 @@ namespace WindowsFormsApp1
         public ChangeType()
         {
             try
-            { 
-                image[0] = Image.FromFile(@"Resources\passenger.png");
-                image[1] = Image.FromFile(@"Resources\truck.png");
-                image[2] = Image.FromFile(@"Resources\onewheeler.png");
+            {
+                image[0] = Properties.Resources.passenger;
+                image[1] = Properties.Resources.truck;
+                image[2] = Properties.Resources.onewheeler;
                 InitializeComponent();
                 Image = image[(int)actualType];
                 Click += ChangeType_Click;
@@ -41,7 +41,7 @@ namespace WindowsFormsApp1
             catch (IOException e) { }
         }
 
-        [Editor(typeof(System.Drawing.Design.UITypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
+        [Editor(typeof(TypeEditor), typeof(System.Drawing.Design.UITypeEditor))]
         [Category("Type")]
         [Browsable(true)]
         public VehicleType Type

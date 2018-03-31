@@ -113,13 +113,13 @@
             // 
             // changeType2
             // 
-            this.changeType2.Image = ((System.Drawing.Image)(resources.GetObject("changeType2.Image")));
+            this.changeType2.InitialImage = ((System.Drawing.Image)(resources.GetObject("changeType2.InitialImage")));
             this.changeType2.Location = new System.Drawing.Point(62, 180);
             this.changeType2.Name = "changeType2";
             this.changeType2.Size = new System.Drawing.Size(100, 100);
             this.changeType2.TabIndex = 9;
             this.changeType2.TabStop = false;
-            this.changeType2.Type = WindowsFormsApp1.VehicleType.TWO_WHEELER;
+            this.changeType2.Type = WindowsFormsApp1.VehicleType.PASSENGER;
             // 
             // label4
             // 

@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TypeEditor.cs" />
     <Compile Include="View.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -94,6 +95,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -110,7 +112,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Debug\Resources\passenger.png" />
+    <None Include="Resources\Image1.bmp" />
+    <Content Include="Resources\onewheeler.png" />
     <Content Include="Resources\passenger.png" />
+    <Content Include="Resources\truck.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
