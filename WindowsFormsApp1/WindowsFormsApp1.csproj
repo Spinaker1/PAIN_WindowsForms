@@ -111,11 +111,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\Debug\Resources\passenger.png" />
     <None Include="Resources\Image1.bmp" />
     <Content Include="Resources\onewheeler.png" />
     <Content Include="Resources\passenger.png" />
     <Content Include="Resources\truck.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

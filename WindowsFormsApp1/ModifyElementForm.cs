@@ -43,6 +43,8 @@ namespace WindowsFormsApp1
 
         private void setValidation()
         {
+            this.AutoValidate = AutoValidate.EnableAllowFocusChange;
+
             textBox1.Validating += new CancelEventHandler(textBox1_Validating);
             textBox2.Validating += new CancelEventHandler(textBox2_Validating);
             dateTimePicker1.Validating += new CancelEventHandler(dateTimePicker1_Validating);
